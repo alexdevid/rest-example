@@ -1,14 +1,9 @@
-COLOR_RESET   = \033[0m
-COLOR_INFO    = \033[32m
-COLOR_COMMENT = \033[33m
-
 ## Composer install
 composer:
 	composer install --verbose
 
 ## Cache
 cache-clear:
-	@printf "${COLOR_COMMENT}Clearing cache:${COLOR_RESET}\n"
 	@test -f bin/console && bin/console cache:clear --no-warmup || rm -rf var/cache/*
 
 
@@ -31,8 +26,6 @@ db-fixtures:
 phpunit:
 	bin/phpunit
 
-build:
-	composer db-drop db-create db-migrations cache-clear
+build: composer db-drop db-create db-migrations cache-clear
 
-install:
-	composer db-drop db-create db-migrations db-fixtures cache-clear
+install: composer db-drop db-create db-migrations db-fixtures cache-clear

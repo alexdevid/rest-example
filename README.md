@@ -9,6 +9,7 @@ PHPUnit tests is written only for `ArticleService` as an example
 `XML` format is also supported. Just add the `Content-Type: application/xml` header
 
 ### install
+- configure apache/nginx/whatever to point to `./public/index.php`
 - change db url in `.env` file
 - run `make install`
 - do requests!
